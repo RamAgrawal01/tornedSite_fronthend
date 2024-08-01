@@ -40,12 +40,10 @@ const InstructorSection = () => {
                 </p>
 
                <div className="w-fit">
-               <CTAButton active={true} linkto={'/signup'}>
-                    <div className="flex flex-row gap-2 items-center">
-                        Start Learning Today
-                        <FaArrowRight/>
-                    </div>
-                </CTAButton>
+                <button className="text-center text-[15px] px-6 py-3 rounded-full shadow-[3px_3px_0px_0px_rgba(255,255,255,0.18)] shadow-navyblue-300 font-bold bg-yellow-50 text-black
+                hover:scale-95 hover:shadow-none transition-all duration-200  ">
+                    Start Teaching today
+                </button>
                </div>
 
             </div>

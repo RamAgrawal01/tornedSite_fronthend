@@ -5,6 +5,7 @@ import { categories } from '../../../services/api';
 import Loader from '../../common/Loader';
 import { Link } from 'react-router-dom';
 import { GiSplitCross } from "react-icons/gi";
+import useOnClickOutside from '../../../customhook/useOnClickOutside';
 
 
 const CatalogModal = ({setCatalogModal}) => {
