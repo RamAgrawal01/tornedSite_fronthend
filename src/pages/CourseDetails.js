@@ -18,6 +18,9 @@ import CourseAccordionBar from '../components/core/courseDetails/CourseAccordion
 import Footer from "../components/common/Footer"
 import { MdOutlineVerified } from 'react-icons/md'
 import Img from '../components/common/Img';
+import { addToCart } from '../slices/cartSlice';
+import toast from 'react-hot-toast';
+import { ACCOUNT_TYPE } from '../utils/constants';
 
 const CourseDetails = () => {
   const { token } = useSelector((state) => state.auth);
@@ -112,6 +115,26 @@ const CourseDetails = () => {
     });
   };
 
+  // Add to cart Course handler
+  const handleAddToCart = () => {
+    if (user && user?.accountType === ACCOUNT_TYPE.INSTRUCTOR) {
+      toast.error("You are an Instructor. You can't buy a course.")
+      return
+    }
+    if (token) {
+      dispatch(addToCart(courseData?.data.courseDetails))
+      return
+    }
+    setConfirmationModal({
+      text1: "You are not logged in!",
+      text2: "Please login to add To Cart",
+      btn1Text: "Login",
+      btn2Text: "Cancel",
+      btn1Handler: () => navigate("/login"),
+      btn2Handler: () => setConfirmationModal(null),
+    })
+  }
+
   if (loading || !courseData) {
     return (
       <div>
@@ -142,6 +165,16 @@ const CourseDetails = () => {
                 <div className='mb-5 lg:mt-10 lg:mb-0 z-[100]'>
                  <GiReturnArrow className='w-10 h-10 text-yellow-100 hover:text-yellow-50 cursor-pointer' />
                 </div>
+              
+             {/* will appear only for small size */}
+             <div className="relative block max-h-[30rem] lg:hidden">
+              <Img
+                src={thumbnail}
+                alt="course thumbnail"
+                className="aspect-auto w-full rounded-2xl"
+              />
+              <div className="absolute bottom-0 left-0 h-full w-full shadow-[#161D29_0px_-64px_36px_-28px_inset]"></div>
+            </div>
           
 
             {/* COurse data */}
@@ -168,8 +201,8 @@ const CourseDetails = () => {
            {/* will appear only for small size */}
            <div className="flex w-full flex-col gap-4 border-y border-y-richblack-500 py-4 lg:hidden">
               <p className="space-x-3 pb-4 text-3xl font-semibold text-richblack-5">Rs. {price}</p>
-              <button className="yellowButton" >Buy Now</button>
-              <button  className="blackButton">Add to Cart</button>
+              <button className="yellowButton" onClick={handleBuyCourse}>Buy Now</button>
+              <button  className="blackButton" onClick={handleAddToCart}>Add to Cart</button>
             </div>
           </div>
 
