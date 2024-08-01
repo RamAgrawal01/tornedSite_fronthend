@@ -16,6 +16,7 @@ import Footer from "../components/common/Footer";
 import ExploreMore from "../components/core/HomePage/ExploreMore";
 import ReviewSlider from "../components/common/ReviewSlider";
 import { MdOutlineRateReview } from 'react-icons/md'
+import CatalogModal from "../components/core/Catalog/CatalogModal";
     // background random images
     import backgroundImg10 from '../assets/Images/random bg img/coding bg10.jpg'
     import backgroundImg111 from '../assets/Images/random bg img/coding bg11.jpg'
@@ -49,6 +50,7 @@ const randomImges = [
 ];
 
 const [backgroundImg, setBackgroundImg] = useState(null);
+const [catalogModal , setCatalogModal] = useState(false);
 
     useEffect(() => {
         const bg = randomImges[Math.floor(Math.random() * randomImges.length)]
@@ -109,9 +111,11 @@ const [backgroundImg, setBackgroundImg] = useState(null);
                     </motion.div>
 
             <div className="flex gap-7 mt-8">
-                <CTAButton active={true} linkto={"/about"}>
+               <div className="cursor-pointer">
+               <CTAButton active={true}  onClick={()=>setCatalogModal(true)}>
                     Learn More
                 </CTAButton>
+               </div>
 
                 <CTAButton active={false} linkto={"/login"}>
                     Book a Demo
@@ -226,14 +230,14 @@ const [backgroundImg, setBackgroundImg] = useState(null);
                 <div className='homepage_background h-[310px]'>
                         <div className='w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto'>
                             <div className='h-[150px]'></div>
-                            <div className='flex flex-row lg:gap-7 gap-3 text-white '>
-                                <CTAButton active={true} linkto={"/signup"}>
+                            <div className='flex flex-row  gap-7 text-white '>
+                                <CTAButton active={true} onClick={()=>setCatalogModal(true)} className="sm:hidden">
                                     <div className='flex items-center gap-3' >
                                         Explore Catalog
                                         <FaArrowRight />
                                     </div>
                                 </CTAButton>
-                                <CTAButton active={false} linkto={"/catalog/high-school"}>
+                                <CTAButton active={false} linkto={"/catalog/high-school"} className="sm:hidden">
                                     <div>
                                         Learn more
                                     </div>
@@ -291,6 +295,8 @@ const [backgroundImg, setBackgroundImg] = useState(null);
 
                 {/*Footer */}
                 <Footer />
+
+            {catalogModal && <CatalogModal setCatalogModal={setCatalogModal}/>}
             </div >
      </React.Fragment>
     )

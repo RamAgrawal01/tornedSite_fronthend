@@ -59,7 +59,7 @@ export default function ProfileDropdown() {
               buttonHandler: () => dispatch(logout(navigate)),
               button2Handler:() => setConfirmationModal(null),
          })}
-            className="flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-richblack-700 hover:text-richblack-25"
+            className="flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm text-navyblue-100 hover:bg-navyblue-700 hover:text-navyblue-50"
           >
             <VscSignOut className="text-lg" />
             Logout

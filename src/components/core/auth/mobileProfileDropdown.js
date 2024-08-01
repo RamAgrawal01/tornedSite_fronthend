@@ -8,19 +8,22 @@ import { MdOutlineContactPhone } from "react-icons/md"
 import { TbMessage2Plus } from "react-icons/tb"
 import { PiNotebook } from "react-icons/pi"
 import { TbReportSearch } from "react-icons/tb";
-
+import useOnClickOutside from '../../../customhook/useOnClickOutside';
 import { Link } from 'react-router-dom';
+import CatalogModal from '../Catalog/CatalogModal';
 
 const MobileProfileDropDown = () => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    
     const ref = useRef(null);
 
     const { user } = useSelector((state) => state.profile);
     
     const [open, setOpen] = useState(false);
     const [subLinks, setSubLinks] = useState([]);
+    const [catalogModal  , setCatalogModal] = useState(false);
     const [loading, setLoading] = useState(false);
+
+    useOnClickOutside(ref, () => setOpen(false))
 
     const fetchSublinks = async () => {
         try {
@@ -36,6 +39,11 @@ const MobileProfileDropDown = () => {
     useEffect(() => {
         fetchSublinks();
     }, []);
+
+    const handleClick = () => {
+        setOpen(false);
+        setCatalogModal(true);
+      };
 
 
     return(
@@ -54,8 +62,12 @@ const MobileProfileDropDown = () => {
 
         {
             open &&(
-                <div className='absolute min-w-[120px] right-0 top-[2rem] z-[100] bg-navyblue-800 border-1px
-                border-navyblue-600 text-navyblue-200 overflow-hidden rounded-lg divide-y-[1px] divide-richblack-300'>
+                
+                <div
+                onClick={(e) => e.stopPropagation()}
+                className='absolute min-w-[120px] right-0 top-[2rem] z-[100] bg-navyblue-800 border-1px
+                border-navyblue-600 text-navyblue-200 overflow-hidden rounded-lg divide-y-[1px] divide-richblack-300'
+                ref={ref}>
 
                     <Link to='/dashboard/my-profile' onClick={()=>setOpen(false)}>
                     <div className='flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm'>
@@ -74,12 +86,11 @@ const MobileProfileDropDown = () => {
                     </Link>
 
 
-                    <Link to='' onClick={()=>setOpen(false)}>
-                    <div className='flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm'>
-                    <PiNotebook className="text-lg" />
-                        Catalog
-                    </div>
-                    
+                    <Link to='' onClick={handleClick}>
+                       <div className='flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm'>
+                       <PiNotebook className="text-lg" />
+                           Catalog
+                      </div>
                     </Link>
 
                     <Link to='/about' onClick={()=>setOpen(false)}>
@@ -98,7 +109,7 @@ const MobileProfileDropDown = () => {
                     
                     </Link>
 
-                    <Link to='/results' onClick={()=>setOpen(false)}>
+                    <Link to='https://result-management-system-phi.vercel.app/' onClick={()=>setOpen(false)}>
                     <div className='flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm'>
                     <TbReportSearch className="text-lg" />
                         Results
@@ -108,6 +119,8 @@ const MobileProfileDropDown = () => {
                 </div>
             )
         }
+
+        {catalogModal && <CatalogModal setCatalogModal={setCatalogModal}/>}
 
         </button>
 
