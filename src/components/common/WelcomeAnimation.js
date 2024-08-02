@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './WelcomeAnimation.css';
-import welcomeVideo from '../../assets/welcome.mp4'; // Adjust the path as needed
+import welcomeVideo from '../../assets/welcome video.mp4'; // Ensure the path is correct
 
 const WelcomeAnimation = ({ onAnimationEnd }) => {
   const [isVisible, setIsVisible] = useState(true);
@@ -33,7 +33,7 @@ const WelcomeAnimation = ({ onAnimationEnd }) => {
     <div className="welcome-animation">
       <video
         id="welcomeVideo"
-        src={welcomeVideo}
+        src={welcomeVideo} // Using the local video file
         autoPlay
         muted
         playsInline
