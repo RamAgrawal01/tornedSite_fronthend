@@ -1,0 +1,26 @@
+/* ReviewSlider.css */
+
+.swiper-container {
+    padding-bottom: 30px; /* Adjust this to make space for pagination */
+  }
+  
+  .swiper-pagination {
+    bottom: 0; /* Position pagination at the bottom */
+    color : rgb(255, 255, 255)
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white; /* Adjust the color to match your theme */
+  }
+  
+  .mySwiper .swiper-button-next,
+  .mySwiper .swiper-button-prev {
+    top: 50%; /* Center the navigation buttons vertically */
+    transform: translateY(-50%);
+  }
+ 
+  
+  .mySwiper .swiper-pagination {
+    bottom: 10px; /* Position the pagination dots slightly above the bottom */
+  }
