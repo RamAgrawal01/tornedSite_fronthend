@@ -210,3 +210,33 @@ body {
       display: inline-block; /* Ensure it's inline-block to apply transform */
       animation: themeHi 2s infinite; /* 1s duration, infinite repeat */
     }
+
+
+/* **************************MOBING BACKGROUND ************************** */
+@keyframes moveBorder {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+.border-moving-lines {
+  position: relative;
+  border: none;
+}
+
+.border-moving-lines::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, blue 50%, transparent 25%, transparent 50%, rgba(171, 42, 42, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  background-size: 20px 20px;
+  animation: moveBorder 15s linear infinite;
+  z-index: -1;
+  border-radius: 8px;
+}

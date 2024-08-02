@@ -5,13 +5,14 @@ import { categories } from '../../../services/api';
 import Loader from '../../common/Loader';
 import { Link } from 'react-router-dom';
 import { GiSplitCross } from "react-icons/gi";
+import useOnClickOutside from '../../../customhook/useOnClickOutside';
 
 
 const CatalogModal = ({setCatalogModal}) => {
 
     const [loading , setLoading] = useState(false);
     const [subLink , setSubLink] = useState([]);
-
+  
 
     const fetchSubLink = async () => {
         try {
@@ -44,7 +45,7 @@ const CatalogModal = ({setCatalogModal}) => {
 
             {
                 loading ? (<div> <Loader/> </div>) :
-
+            
                subLink.length ? (
                 <div className='text-navyblue-100 text-lg text-center flex flex-col gap-3 my-3 '>
                 {subLink.map((subLink,index)=>(
@@ -52,13 +53,13 @@ const CatalogModal = ({setCatalogModal}) => {
                         .split(" ").
                         join("-").
                         toLowerCase()}`}
-
+                        
                         key={index}
                         >
                         <p className='hover:scale-105 transition-all duration-200 hover:text-navyblue-300'>{subLink.name}</p>
 
                         </Link>
-
+                    
                 ))}
                 </div>
                ) : (<p>No Catalog Found</p>)

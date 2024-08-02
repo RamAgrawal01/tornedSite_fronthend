@@ -29,7 +29,11 @@ const AboutUs =()=> {
                 whileInView={'show'}
                 viewport={{once:false,amount:0.1}}>
                     Driving Innovation in Online Education for 
+
                     <HighlightText text={" Bright Future"} />
+
+              
+
                  </motion.p>
 
                  <motion.p

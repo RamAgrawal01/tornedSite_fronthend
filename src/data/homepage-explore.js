@@ -26,13 +26,13 @@ export const HomePageExplore = [
         tag: 'High School',
         courses : [
             {
-                heading : "karn Maths",
-                description : "This course covers the basic concept of maths which is used for maths standarad in class 10th CBSE",
+                heading : "Karn Maths",
+                description : "This course covers the basic concept of maths which is used for maths Standard in class 10th CBSE",
                 level : 'Intermediate',
                 lessionNumber : 12
             },
             {
-                heading : "Omlypiad for class 10th",
+                heading : "Olympiad for class 10th",
                 description : "This course explores advanced topics in maths  and science which is essential for the olympiad and NTSE exams",
                 level : 'Hard',
                 lessionNumber : 10

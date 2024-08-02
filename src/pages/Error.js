@@ -33,4 +33,7 @@ const Error = () => {
     </section>
     )
 }
+
+
 export default Error;
+
