@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './WelcomeAnimation.css';
+import welcomeVideo from '../../assets/welcome.mp4'; // Adjust the path as needed
 
 const WelcomeAnimation = ({ onAnimationEnd }) => {
   const [isVisible, setIsVisible] = useState(true);
@@ -9,28 +10,34 @@ const WelcomeAnimation = ({ onAnimationEnd }) => {
     
     if (hasSeenWelcomeMessage) {
       setIsVisible(false);
-      onAnimationEnd();
+      onAnimationEnd(); // Skip animation if already seen
       return;
     }
 
-    // Set a timer to hide the GIF after it finishes playing (e.g., 3 seconds)
-    const timer = setTimeout(() => {
+    // Set a timer to hide the animation after the video duration
+    const videoElement = document.getElementById('welcomeVideo');
+    videoElement.onended = () => {
       setIsVisible(false);
-      sessionStorage.setItem('hasSeenWelcomeMessage', 'true');
-      onAnimationEnd();
-    }, 3000); // Adjust the time according to your GIF duration
+      sessionStorage.setItem('hasSeenWelcomeMessage', 'true'); // Mark message as seen
+      onAnimationEnd(); // Notify when animation ends
+    };
 
-    return () => clearTimeout(timer);
+    return () => {
+      videoElement.onended = null; // Cleanup event listener
+    };
   }, [onAnimationEnd]);
 
   if (!isVisible) return null;
 
   return (
     <div className="welcome-animation">
-      <img
-        src="https://drive.google.com/file/d/1JD0VzDj_p7aqYirsMopsg-BjJk18Neyw/view"
-        alt="Welcome to Torned Education"
-        className="welcome-gif"
+      <video
+        id="welcomeVideo"
+        src={welcomeVideo}
+        autoPlay
+        muted
+        playsInline
+        className="welcome-video"
       />
     </div>
   );
