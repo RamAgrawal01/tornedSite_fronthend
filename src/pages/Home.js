@@ -171,7 +171,7 @@ const [catalogModal , setCatalogModal] = useState(false);
                 autoPlay
                 className=" md:shadow-[20px_20px_rgba(255,255,255)] md:shadow-pure-greys-200 shadow-[13px_13px_rgba(255,255,255)]  shadow-orange-400
                 lg:h-[35rem]"
-                src={Banner2}>
+                src="https://cdn.pixabay.com/video/2023/11/11/188710-883612324_large.mp4">
                     
                 
                 </video>
