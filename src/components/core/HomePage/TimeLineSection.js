@@ -31,76 +31,59 @@ const timeline =[
     },
 ];
 
-const TimeLineSection =() => {
-    return(
+const TimeLineSection = () => {
+    return (
         <div>
             <div className='flex lg:flex-row flex-col gap-16 items-center'>
-
                 <motion.div
-                    variants={fadeIn('right',0.1)}
-                    initial ='hidden'
+                    variants={fadeIn('right', 0.1)}
+                    initial='hidden'
                     whileInView={'show'}
-                    viewport={{once:false,amount :0.1}}
+                    viewport={{ once: false, amount: 0.1 }}
                     className='w-full lg:w-[50%] flex flex-col gap-5'
-                    >
-                        {
-                            timeline.map((element , index)=>{
-                                return(
-                                   <div className="flex gap-6" key={index}>
-                                        <div className='w-[50px] h-[40px] bg-navyblue-500 rounded-full flex items-center justify-center'>
-                                            <img src={element.Logo} />
-                                        </div>
-
-                                        <div>
-                                            <h2 className='font-semibold text-[18px]'>{element.heading}</h2>
-                                            <p className='text-base'>{element.Description}</p>
-                                        </div>
-                                   </div> 
-                                )
-                            })
-                        }
-
+                >
+                    {timeline.map((element, index) => (
+                        <div className="flex gap-6" key={index}>
+                            <div className='w-[50px] h-[40px] bg-navyblue-500 rounded-full flex items-center justify-center'>
+                                <img src={element.Logo} />
+                            </div>
+                            <div>
+                                <h2 className='font-semibold text-[18px]'>{element.heading}</h2>
+                                <p className='text-base'>{element.Description}</p>
+                            </div>
+                        </div>
+                    ))}
                 </motion.div>
 
                 <motion.div
-                 variants={fadeIn('left',0.1)}
-                 initial ='hidden'
-                 whileInView={'show'}
-                 viewport={{once:false,amount :0.1}}
-                 className=' relative '
+                    variants={fadeIn('left', 0.1)}
+                    initial='hidden'
+                    whileInView={'show'}
+                    viewport={{ once: false, amount: 0.1 }}
+                    className='relative'
                 >
                     <img src={timeLineImage} alt='timeLineImage'
-                    className='shadow-orange-500 mb-12 shadow-[20px_-5px_50px_-5px]  object-cover
-                    h-fit scale-x-[-1] w-[600px]'/>
+                        className='shadow-orange-500 mb-12 shadow-[20px_-5px_50px_-5px] object-cover
+                        h-fit scale-x-[-1] w-[600px] transition-opacity duration-500 ease-in-out opacity-100'
+                        loading="lazy"
+                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                        onLoad={(e) => { e.currentTarget.style.opacity = '1'; }} />
 
-                    <div className='absolute bg-caribbeangreen-700 flex flex-row text-white uppercase  py-4
+                    <div className='absolute bg-caribbeangreen-700 flex flex-row text-white uppercase py-4
                     left-[50%] translate-x-[-50%] translate-y-[-100%] rounded-3xl'>
                         <div className='flex flex-row gap-5 items-center border-r border-caribbeangreen-300 px-7'>
                             <p className='text-3xl font-bold'>5</p>
                             <p className='text-caribbeangreen-200 text-sm'>Years of Experience</p>
                         </div>
-
                         <div className='flex gap-5 items-center px-7'>
-                        <p className='text-3xl font-bold'>100</p>
-                        <p className='text-caribbeangreen-200 text-sm'>Types of Courses</p>
-
+                            <p className='text-3xl font-bold'>100</p>
+                            <p className='text-caribbeangreen-200 text-sm'>Types of Courses</p>
                         </div>
-
                     </div>
-
-
                 </motion.div>
-
-                
-
-
-
-                
-
             </div>
         </div>
     )
-
-
 }
+
 export default TimeLineSection;
