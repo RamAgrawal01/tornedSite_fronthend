@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './WelcomeAnimation.css';
-import welcomeVideo from '../../assets/welcome video.mp4'; // Adjust the path as needed
+import welcomeVideo from '../../assets/welcome.mp4'; // Adjust the path as needed
 
 const WelcomeAnimation = ({ onAnimationEnd }) => {
   const [isVisible, setIsVisible] = useState(true);
