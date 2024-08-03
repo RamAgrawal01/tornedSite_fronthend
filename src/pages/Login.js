@@ -1,6 +1,6 @@
 
 import Template from "../components/core/auth/Template";
-import loginImage from "../assets/loginsignupimages/855418-hd_1920_1080_25fps.gif";
+import loginImage from "../assets/loginsignupimages/loginpicture.jpg";
 
 const Login = ({setIsLoggedIn}) =>{
     

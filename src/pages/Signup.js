@@ -1,6 +1,6 @@
 import React from "react";
 import Template from "../components/core/auth/Template";
-import signupImage from "../assets/loginsignupimages/________.gif";
+import signupImage from "../assets/loginsignupimages/16xc_gyq5_210901.jpg";
 
 const Signup = ({setIsLoggedIn}) =>{
     return(
