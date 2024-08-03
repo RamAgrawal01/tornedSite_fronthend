@@ -90,7 +90,7 @@ const NavBar = () => {
                                                         ))}
                                                     </>
                                                 ) : (
-                                                    <p className="text-center">No Courses Found</p>
+                                                    <p className="text-center">Courses not Found</p>
                                                 )}
                                             </div>
                                         </div>

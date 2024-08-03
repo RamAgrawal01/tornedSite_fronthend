@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './WelcomeAnimation.css';
-import welcomeVideo from '../../assets/welcome.mp4'; // Adjust the path as needed
 
 const WelcomeAnimation = ({ onAnimationEnd }) => {
   const [isVisible, setIsVisible] = useState(true);
@@ -14,31 +13,21 @@ const WelcomeAnimation = ({ onAnimationEnd }) => {
       return;
     }
 
-    // Set a timer to hide the animation after the video duration
-    const videoElement = document.getElementById('welcomeVideo');
-    videoElement.onended = () => {
+    // Set a timer to hide the animation after 3 seconds (3000ms)
+    const timer = setTimeout(() => {
       setIsVisible(false);
       sessionStorage.setItem('hasSeenWelcomeMessage', 'true'); // Mark message as seen
       onAnimationEnd(); // Notify when animation ends
-    };
+    }, 3000);
 
-    return () => {
-      videoElement.onended = null; // Cleanup event listener
-    };
+    return () => clearTimeout(timer);
   }, [onAnimationEnd]);
 
   if (!isVisible) return null;
 
   return (
     <div className="welcome-animation">
-      <video
-        id="welcomeVideo"
-        src={welcomeVideo}
-        autoPlay
-        muted
-        playsInline
-        className="welcome-video"
-      />
+      <h1>Welcome to Torned Education</h1>
     </div>
   );
 };
