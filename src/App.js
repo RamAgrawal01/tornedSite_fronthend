@@ -29,10 +29,20 @@ import ViewCourse from './pages/ViewCourse';
 import VideoDetails from './components/core/viewCourse/videoDetails';
 import InstructorDashboard from './components/core/Dashboard/instructorDashboard/instructor';
 import InstructorIndividualCourse from './components/core/Dashboard/instructorDashboard/InstructorIndividualCourse';
+import { useState } from 'react';
+import WelcomeAnimation from './components/common/WelcomeAnimation';
 
 function App() {
+  const { user } = useSelector((state) => state.profile);
+  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
 
-  const { user } = useSelector((state) => state.profile)
+  const handleAnimationEnd = () => {
+    setIsAnimationComplete(true);
+  };
+
+  if (!isAnimationComplete) {
+    return <WelcomeAnimation onAnimationEnd={handleAnimationEnd} />;
+  }
 
   return (
     
