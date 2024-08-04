@@ -19,7 +19,7 @@ export function getPasswordResetToken(email,setEmailSent){
         dispatch(setLoading(true));
         try{
             const response = await apiConnector("POST",RESETPASSTOKEN_API ,{email})
-            console.log("RESET PASSWORD TOKEN RESPONSE...",response)
+            // console.log("RESET PASSWORD TOKEN RESPONSE...",response)
 
             if(!response.data.success){
                 toast.error(response.data.message);
@@ -56,7 +56,7 @@ export function sendOtp(email, navigate) {
           checkUserExist: true,
         });
   
-        console.log("Response of otpAPI:", response);
+        // console.log("Response of otpAPI:", response);
   
         if (!response.data.success) {
           toast.error(response.data.message);
@@ -105,7 +105,7 @@ export function signup(accountType,
             otp,
             contactNumber,
             });
-            console.log("Response of Signup:", response);
+            // console.log("Response of Signup:", response);
 
             if (!response.data.success) {
                 toast.error(response.data.message);
