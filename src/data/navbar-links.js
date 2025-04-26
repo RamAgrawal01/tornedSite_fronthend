@@ -15,6 +15,10 @@
     path: "/contact",
   },
   {
+    title: "Quiz Practice",
+    path: "https://quiz-genius-theta.vercel.app/",
+  },
+  {
     title: "Results",
     path: "https://result-management-system-phi.vercel.app/",
   },

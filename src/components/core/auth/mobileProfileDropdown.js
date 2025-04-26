@@ -109,6 +109,14 @@ const MobileProfileDropDown = () => {
                     
                     </Link>
 
+                    <Link to='https://quiz-genius-theta.vercel.app/' onClick={()=>setOpen(false)}>
+                    <div className='flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm'>
+                    <MdOutlineContactPhone className="text-lg" />
+                        Quiz Practice
+                    </div>
+                    
+                    </Link>
+
                     <Link to='https://result-management-system-phi.vercel.app/' onClick={()=>setOpen(false)}>
                     <div className='flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm'>
                     <TbReportSearch className="text-lg" />

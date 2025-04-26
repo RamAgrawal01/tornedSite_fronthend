@@ -38,7 +38,7 @@ export async function buyCourse(token , coursesId , userDetails , navigate , dis
             toast.error('Razorpay SDK failed to load')
             return;
         }
-
+        console.log(token);
         //order initialize
         const orderResponse = await apiConnector("POST", COURSE_PAYMENT_API,
             //mistake : - i use same name coursesId in my backend code to get from the body 
@@ -87,6 +87,8 @@ export async function buyCourse(token , coursesId , userDetails , navigate , dis
     }
     toast.dismiss(toastId);
 }
+
+
 
 
 // ================ send Payment Success Email ================
