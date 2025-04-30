@@ -17,6 +17,7 @@ import ExploreMore from "../components/core/HomePage/ExploreMore";
 import ReviewSlider from "../components/common/ReviewSlider";
 import { MdOutlineRateReview } from 'react-icons/md'
 import CatalogModal from "../components/core/Catalog/CatalogModal";
+import { FaComments } from "react-icons/fa";
     // background random images
     import backgroundImg10 from '../assets/Images/random bg img/coding bg10.jpg'
     import backgroundImg111 from '../assets/Images/random bg img/coding bg11.jpg'
@@ -279,6 +280,24 @@ const [catalogModal , setCatalogModal] = useState(false);
 
                 
                 </div>
+
+                {/* Chatbot Floating Icon */}
+<motion.div
+  initial={{ y: 100, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{ duration: 0.8, type: "spring" }}
+  className="fixed bottom-6 right-6 z-50"
+>
+  <a
+    href="https://chatbot-keju.onrender.com/" // 🔁 Replace this with your actual chatbot link
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-orange-500 hover:bg-orange-600 text-white p-4 rounded-full shadow-lg shadow-orange-400 hover:scale-110 transition-transform duration-300 ease-in-out"
+  >
+    <FaComments className="text-2xl animate-bounce" />
+  </a>
+</motion.div>
+
 
                 
 
