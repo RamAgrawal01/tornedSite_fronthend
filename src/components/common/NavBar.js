@@ -48,7 +48,7 @@ const NavBar = () => {
         <div className="flex h-14 items-center justify-center border-b-[2px] border-b-navyblue-700">
             <div className="flex w-11/12 max-w-maxContent bg-transparent items-center justify-between">
                 <Link to="/">
-                    <img src={logo} width={160} height={32} alt="logo" />
+                    {/* <img src={logo} width={160} height={32} alt="logo" /> */}
                 </Link>
 
                 <nav>

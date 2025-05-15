@@ -98,7 +98,7 @@ const [catalogModal , setCatalogModal] = useState(false);
                         className='text-center text-3xl lg:text-4xl font-semibold mt-7  '
                     >
                         Empower Your Future with
-                        <HighlightText text={" Torned Education"} />
+                        <HighlightText text={" Mind Crafters"} />
                     </motion.div>
 
                     <motion.div
@@ -261,7 +261,7 @@ const [catalogModal , setCatalogModal] = useState(false);
 
                         <div className="flex flex-col gap-10 w-[40%] items-start">
                             <p className="text-[16px]">
-                                The modern Torned Education dictates its own terms. Today , to be a 
+                                The modern Mind Crafter dictates its own terms. Today , to be a 
                                 competitive specialist requires more than professional skills.
                             </p>
                             <CTAButton active={true} linkto={"/signup"}>

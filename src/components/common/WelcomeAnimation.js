@@ -27,7 +27,7 @@ const WelcomeAnimation = ({ onAnimationEnd }) => {
 
   return (
     <div className="welcome-animation">
-      <h1>Welcome to Torned Education</h1>
+      <h1>Welcome to Mind Crafters</h1>
     </div>
   );
 };
